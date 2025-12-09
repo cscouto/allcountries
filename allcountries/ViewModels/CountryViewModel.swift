@@ -34,7 +34,7 @@ final class CountryViewModel: ObservableObject {
         let result = await service.fetchCountries()
         switch result {
         case .success(let response):
-            countries = response
+            countries = response.sorted(by: { $0.name.common < $1.name.common })
         case .failure(let networkError):
             handleError(networkError)
         }
