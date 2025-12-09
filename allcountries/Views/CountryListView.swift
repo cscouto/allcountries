@@ -7,34 +7,34 @@
 import SwiftUI
 
 struct CountryListView: View {
-    @StateObject private var vm = CountryViewModel()
+    @StateObject private var viewModel = CountryViewModel()
     @EnvironmentObject private var navVM: NavigationViewModel
     
     var body: some View {
         NavigationStack(path: $navVM.path) {
-            List(vm.filteredCountries) { country in
+            List(viewModel.filteredCountries) { country in
                 Button {
                     navVM.showCountryDetail(countryCode: country.cca2)
                 } label: {
                     CountryRowView(country: country)
                 }
             }
-            .searchable(text: $vm.search)
+            .searchable(text: $viewModel.search)
             .navigationTitle(L10n.countries)
             .task {
-                await vm.fetchCountries()
+                await viewModel.fetchCountries()
             }
-            .alert(item: $vm.error) { alertError in
+            .alert(item: $viewModel.error) { alertError in
                 Alert(
                     title: Text(L10n.errorTitle),
                     message: Text(alertError.message),
-                    dismissButton: .default(Text(L10n.ok)) { vm.error = nil }
+                    dismissButton: .default(Text(L10n.ok)) { viewModel.error = nil }
                 )
             }
             .navigationDestination(for: Route.self) { route in
                 switch route {
                 case .countryDetail(let code):
-                    CountryDetailView(code: code)
+                    CountryDetailView(code: code, viewModel: viewModel)
                 }
             }
         }

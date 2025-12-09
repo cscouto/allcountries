@@ -10,7 +10,7 @@ import MapKit
 
 struct CountryDetailView: View {
     let code: String
-    @StateObject private var vm = CountryViewModel()
+    @ObservedObject var viewModel: CountryViewModel
     
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
@@ -19,7 +19,7 @@ struct CountryDetailView: View {
     
     var body: some View {
         ScrollView {
-            if let country = vm.selectedCountry {
+            if let country = viewModel.selectedCountry {
                 VStack(spacing: 20) {
                     // Flag Image
                     AsyncImage(url: URL(string: country.flags.png)) { image in
@@ -85,20 +85,23 @@ struct CountryDetailView: View {
                     }
             }
         }
-        .navigationTitle(vm.selectedCountry?.name.common ?? L10n.loading)
+        .navigationTitle(viewModel.selectedCountry?.name.common ?? L10n.loading)
         .navigationBarTitleDisplayMode(.inline)
-        .alert(item: $vm.error) { alertError in
+        .alert(item: $viewModel.error) { alertError in
             Alert(
                 title: Text(L10n.errorTitle),
                 message: Text(alertError.message),
-                dismissButton: .default(Text(L10n.ok)) { vm.error = nil }
+                dismissButton: .default(Text(L10n.ok)) { viewModel.error = nil }
             )
+        }
+        .onDisappear {
+            viewModel.selectedCountry = nil
         }
     }
     
     // MARK: - Fetch Country
     private func fetchCountry() async {
-        await vm.fetchCountry(for: code)
+        await viewModel.fetchCountry(for: code)
     }
 }
 
