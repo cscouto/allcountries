@@ -29,9 +29,22 @@
 		A33AF0EF2EE771F2006B39DE /* allcountriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = allcountriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A36891522EE7C33000348D79 /* Exceptions for "allcountries" folder in "allcountries" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A33AF0D52EE771F0006B39DE /* allcountries */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A33AF0D82EE771F0006B39DE /* allcountries */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A36891522EE7C33000348D79 /* Exceptions for "allcountries" folder in "allcountries" target */,
+			);
 			path = allcountries;
 			sourceTree = "<group>";
 		};
@@ -178,6 +191,7 @@
 					};
 					A33AF0E42EE771F2006B39DE = {
 						CreatedOnToolsVersion = 16.3;
+						LastSwiftMigration = 1630;
 						TestTargetID = A33AF0D52EE771F0006B39DE;
 					};
 					A33AF0EE2EE771F2006B39DE = {
@@ -400,6 +414,8 @@
 				DEVELOPMENT_TEAM = 7TW6282C6A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = allcountries/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AllCountries;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +444,8 @@
 				DEVELOPMENT_TEAM = 7TW6282C6A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = allcountries/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AllCountries;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -450,6 +468,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7TW6282C6A;
@@ -459,6 +478,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.coutocode.allcountriesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/allcountries.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/allcountries";
@@ -469,6 +489,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7TW6282C6A;

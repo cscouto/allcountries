@@ -1,8 +1,27 @@
-//
-//  Localizable.strings
-//  allcountries
-//
-//  Created by Tiago Do Couto on 12/9/25.
-//
+/* General */
+"ok" = "OK";
+"error_title" = "Error";
+"loading" = "Loading...";
+"n_a" = "N/A";
 
-import Foundation
+/* Country List */
+"countries" = "Countries";
+
+/* Country Detail */
+"capital" = "Capital";
+"population" = "Population";
+"languages" = "Languages";
+"currencies" = "Currencies";
+
+/* Network Errors */
+"url_error" = "URL error";
+"decoding_error" = "Decoding error";
+"invalid_response" = "Invalid server response";
+"bad_request" = "Bad request";
+"unauthorized" = "Unauthorized";
+"forbidden" = "Forbidden";
+"not_found" = "Resource not found";
+"too_many_requests" = "Too many requests";
+"server_error" = "Server error";
+"unexpected_status" = "Unexpected status code";
+"unknown_error" = "Unknown error";
